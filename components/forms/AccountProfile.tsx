@@ -42,7 +42,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         }
     })
 
-    const handleImage = (e: ChangeEvent, fieldChange:(value: string) => void) => {
+    const handleImage = (e: ChangeEvent, fieldChange: (value: string) => void) => {
         e.preventDefault()
     }
 
@@ -62,7 +62,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     name='profile_photo'
                     render={({ field }) => (
                         <FormItem className='flex items-center gap-4 '>
-                            <FormLabel className='account-form'>
+                            <FormLabel className='account-form_image-label'>
                                 {field.value ? (
                                     <Image
                                         src={field.value}
@@ -85,11 +85,30 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                             </FormLabel>
                             <FormControl className='flex-1 text-base-semibold text-gray-200'>
                                 <Input
-                                type='file'
-                                accept='image/*'
-                                placeholder='Upload a photo'
-                                className='account-form_image-input'
-                                onChange={(e) => handleImage(e, field.onChange)}
+                                    type='file'
+                                    accept='image/*'
+                                    placeholder='Upload a photo'
+                                    className='account-form_image-input'
+                                    onChange={(e) => handleImage(e, field.onChange)}
+                                />
+                            </FormControl>
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name='name'
+                    render={({ field }) => (
+                        <FormItem className='flex items-center gap-3 w-full '>
+                            <FormLabel className='text-base-semibold text-light-2'>
+                               Name
+                            </FormLabel>
+                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                                <Input
+                                    type='type'
+                                    className='account-forma_input no-focus'
+                                    {...field}
                                 />
                             </FormControl>
                         </FormItem>
