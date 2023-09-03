@@ -5,8 +5,8 @@ export const sidebarLinks = [
       label: "Home",
     },
     {
-      imgURL: "/assets/search.svg",
-      route: "/search",
+      imgURL: "/assets/magnifier.svg",
+      route: "/",
       label: "Search",
     },
     {
@@ -15,17 +15,17 @@ export const sidebarLinks = [
       label: "Activity",
     },
     {
-      imgURL: "/assets/create.svg",
+      imgURL: "/assets/note.svg",
       route: "/create-thread",
       label: "Create Thread",
     },
     {
-      imgURL: "/assets/community.svg",
+      imgURL: "/assets/friends.svg",
       route: "/communities",
       label: "Communities",
     },
     {
-      imgURL: "/assets/user.svg",
+      imgURL: "/assets/user-profile.svg",
       route: "/profile",
       label: "Profile",
     },
