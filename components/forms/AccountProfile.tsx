@@ -49,7 +49,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             name: user?.name ? user.name : "",
             username: user?.username ? user.username : "",
             bio: user?.bio ? user.bio : "",
-        },
+        },              
     });
 
 
