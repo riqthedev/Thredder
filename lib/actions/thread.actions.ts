@@ -105,17 +105,17 @@ export async function deleteThread(id: string, path: string): Promise<void> {
   try {
     connectToDB();
 
-    // Find the thread to be deleted (the main thread)
+   
     const mainThread = await Thread.findById(id).populate("author community");
 
     if (!mainThread) {
       throw new Error("Thread not found");
     }
 
-    // Fetch all child threads and their descendants recursively
+   
     const descendantThreads = await fetchAllChildThreads(id);
 
-    // Get all descendant thread IDs including the main thread ID and child thread IDs
+   
     const descendantThreadIds = [
       id,
       ...descendantThreads.map((thread) => thread._id),
@@ -136,16 +136,16 @@ export async function deleteThread(id: string, path: string): Promise<void> {
       ].filter((id) => id !== undefined)
     );
 
-    // Recursively delete child threads and their descendants
+    
     await Thread.deleteMany({ _id: { $in: descendantThreadIds } });
 
-    // Update User model
+    
     await User.updateMany(
       { _id: { $in: Array.from(uniqueAuthorIds) } },
       { $pull: { threads: { $in: descendantThreadIds } } }
     );
 
-    // Update Community model
+    
     await Community.updateMany(
       { _id: { $in: Array.from(uniqueCommunityIds) } },
       { $pull: { threads: { $in: descendantThreadIds } } }
@@ -166,12 +166,12 @@ export async function fetchThreadById(threadId: string) {
         path: "author",
         model: User,
         select: "_id id name image",
-      }) // Populate the author field with _id and username
+      }) 
       .populate({
         path: "community",
         model: Community,
         select: "_id id name image",
-      }) // Populate the community field with _id and name
+      }) 
       .populate({
         path: "children", // Populate the children field
         populate: [
@@ -209,27 +209,27 @@ export async function addCommentToThread(
   connectToDB();
 
   try {
-    // Find the original thread by its ID
+   
     const originalThread = await Thread.findById(threadId);
 
     if (!originalThread) {
       throw new Error("Thread not found");
     }
 
-    // Create the new comment thread
+   
     const commentThread = new Thread({
       text: commentText,
       author: userId,
-      parentId: threadId, // Set the parentId to the original thread's ID
+      parentId: threadId,
     });
 
-    // Save the comment thread to the database
+   
     const savedCommentThread = await commentThread.save();
 
-    // Add the comment thread's ID to the original thread's children array
+    
     originalThread.children.push(savedCommentThread._id);
 
-    // Save the updated original thread to the database
+   
     await originalThread.save();
 
     revalidatePath(path);

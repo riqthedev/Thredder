@@ -48,7 +48,7 @@ function ThreadCard({
       <div className='flex items-start justify-between'>
         <div className='flex w-full flex-1 flex-row gap-4'>
           <div className='flex flex-col items-center'>
-            <Link href={`/profile/${author?.id}`} className='relative h-11 w-11'>
+            <Link href={`/profile/${author.id}`} className='relative h-11 w-11'>
               <Image
                 src={author?.image}
                 alt='user_community_image'
@@ -61,7 +61,7 @@ function ThreadCard({
           </div>
 
           <div className='flex w-full flex-col'>
-            <Link href={`/profile/${author?.id}`} className='w-fit'>
+            <Link href={`/profile/${author.id}`} className='w-fit'>
               <h4 className='cursor-pointer text-base-semibold text-light-1'>
                 {author?.name}
               </h4>
@@ -72,7 +72,7 @@ function ThreadCard({
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className='flex gap-3.5'>
                 <Image
-                  src='/assets/heart-gray.svg'
+                  src='/assets/heart.svg'
                   alt='heart'
                   width={24}
                   height={24}
@@ -80,7 +80,7 @@ function ThreadCard({
                 />
                 <Link href={`/thread/${id}`}>
                   <Image
-                    src='/assets/reply.svg'
+                    src='/assets/comment.svg'
                     alt='heart'
                     width={24}
                     height={24}
@@ -88,14 +88,14 @@ function ThreadCard({
                   />
                 </Link>
                 <Image
-                  src='/assets/repost.svg'
+                  src='/assets/share.svg'
                   alt='heart'
                   width={24}
                   height={24}
                   className='cursor-pointer object-contain'
                 />
                 <Image
-                  src='/assets/share.svg'
+                  src='/assets/send.svg'
                   alt='heart'
                   width={24}
                   height={24}
@@ -167,4 +167,4 @@ function ThreadCard({
   );
 }
 
-export default ThreadCard
+export default ThreadCard;

@@ -5,40 +5,40 @@ export const sidebarLinks = [
       label: "Home",
     },
     {
-      imgURL: "/assets/magnifier.svg",
-      route: "/",
+      imgURL: "/assets/search.svg",
+      route: "/search",
       label: "Search",
     },
     {
-      imgURL: "/assets/heart.svg",
+      imgURL: "/assets/activity.svg",
       route: "/activity",
       label: "Activity",
     },
     {
-      imgURL: "/assets/note.svg",
+      imgURL: "/assets/create.svg",
       route: "/create-thread",
       label: "Create Thread",
     },
     {
-      imgURL: "/assets/friends.svg",
+      imgURL: "/assets/group.svg",
       route: "/communities",
       label: "Communities",
     },
     {
-      imgURL: "/assets/user-profile.svg",
+      imgURL: "/assets/profile.svg",
       route: "/profile",
       label: "Profile",
     },
   ];
   
   export const profileTabs = [
-    { value: "threads", label: "Threads", icon: "/assets/reply.svg" },
-    { value: "replies", label: "Replies", icon: "/assets/members.svg" },
-    { value: "tagged", label: "Tagged", icon: "/assets/tag.svg" },
+    { value: "threads", label: "Threads", icon: "/assets/needle.svg" },
+    { value: "replies", label: "Replies", icon: "/assets/comment.svg" },
+    { value: "tagged", label: "Tagged", icon: "/assets/profile.svg" },
   ];
   
   export const communityTabs = [
     { value: "threads", label: "Threads", icon: "/assets/reply.svg" },
-    { value: "members", label: "Members", icon: "/assets/members.svg" },
+    { value: "members", label: "Members", icon: "/assets/group.svg" },
     { value: "requests", label: "Requests", icon: "/assets/request.svg" },
   ];
